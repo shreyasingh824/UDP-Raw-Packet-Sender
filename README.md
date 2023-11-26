@@ -6,25 +6,11 @@ This C program demonstrates a simple implementation of a UDP packet sender using
 
 ## Usage
 
-1. Compile the program:
+1. **Compile the program:**
    ```bash
    gcc -o udp_sender udp_sender.c
-Run the executable: ./udp_sender
+Remember to replace "udp_sender.c" with the actual filename if it's different. Additionally, it's important to address the issues mentioned in the code before using it in a production environment.
 
-
-plaintext
-Copy code
-# UDP Raw Packet Sender
-
-## Overview
-
-This C program demonstrates a simple implementation of a UDP packet sender using raw sockets. It crafts a UDP packet with custom headers, sets up a raw socket, and sends the packet in a loop.
-
-## Usage
-
-1. Compile the program:
-   ```bash
-   gcc -o udp_sender udp_sender.c
 Run the executable:
 bash
 Copy code
@@ -41,15 +27,30 @@ arpa/inet.h
 Struct Definition
 struct psd_udp: Represents a pseudo-header for UDP checksum calculation.
 Functions
-unsigned short in_cksum(unsigned short *addr, int len): Calculates the Internet checksum.
-unsigned short in_cksum_udp(int src, int dst, unsigned short *addr, int len): Calculates UDP checksum using a pseudo-header.
+in_cksum:
+
+Description: Calculates the Internet checksum.
+Parameters:
+unsigned short *addr: Pointer to the data.
+int len: Length of the data.
+in_cksum_udp:
+
+Description: Calculates UDP checksum using a pseudo-header.
+Parameters:
+int src: Source IP address.
+int dst: Destination IP address.
+unsigned short *addr: Pointer to the UDP data.
+int len: Length of the UDP data.
 Thread Function
-void *run(void *arg): Runs the UDP sender thread. Crafts UDP packet, sets up raw socket, and sends packets in a loop.
+run:
+Description: Runs the UDP sender thread. Crafts UDP packets, sets up a raw socket, and sends packets in a loop.
+Parameters:
+void *arg: Argument (not currently used).
 Main Function
-int main(int argc, char **argv): Calls the run function to execute the UDP sender.
-
-
-Remember to replace "udp_sender.c" with the actual filename if it's different. Additionally, it's important to address the issues mentioned in the code before using it in a production environment.
-
+main:
+Description: Calls the run function to execute the UDP sender.
+Parameters:
+int argc: Number of command-line arguments.
+char **argv: Array of command-line argument strings.
 
 
